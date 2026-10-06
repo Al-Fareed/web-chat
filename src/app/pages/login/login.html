@@ -1,0 +1,33 @@
+<app-alert *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" >Invalid email</app-alert>
+<app-alert *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" >Invalid password</app-alert>
+
+<div class="login-container">
+    <app-cards>
+        <div class="login-header">
+            <h2>Welcome back</h2>
+            <h3 class="subtitle"> Sign in to keep the conversation going </h3>
+        </div>
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="handleLoginFormSubmit()">
+            <div id="input-form">
+                <label for="email">Email</label>
+                <input type="text" formControlName="email" name="email">
+            </div>
+            <div id="input-form">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" name="password">
+            </div>
+            <div class="form-footer">
+                <div class="remember-section">
+                    <input formControlName="rememberMe" type="checkbox" name="remember-me" id="remember-me">
+                    <p>Remember me</p>
+                </div>
+                <div>
+                    <p class="forgot-password">Forgot password?</p>
+                </div>
+            </div>
+            <input class="submit-btn" [disabled]="loginForm.invalid" type="submit" value="Sign In">
+
+            <p class="signup-prompt">New here? <a routerLink="/signup" class="signup-link-text">Create an account</a></p>
+        </form>
+    </app-cards>
+</div>

@@ -1,0 +1,57 @@
+.feed-page{
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-container{
+    border: 0.4px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    border-radius: 16px;
+    margin-top: 0.4em;
+}
+
+.feed-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+}
+
+.avatar{
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.blog{
+    margin: 1em 0;
+}
+
+.footer-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.likes {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    color: var(--text-secondary);
+    font-size: var(--font-size-body);
+}
+
+.heart-icon {
+    font-size: 18px;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.heart-icon.is-liked {
+    color: #E24B4A;
+}

@@ -1,0 +1,86 @@
+.navbar-container {
+    display: flex;
+    height: 56px;
+    box-sizing: border-box;
+    background-color: var(--surface-1);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 1.5rem;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.app-name {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-lg);
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-body);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.links a i {
+    font-size: 18px;
+}
+
+.links a:hover {
+    background-color: var(--surface-0);
+    color: var(--text-primary);
+}
+
+.links a.active-link {
+    color: white;
+    background-color: var(--bg-accent);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-link {
+    display: flex;
+    text-decoration: none;
+}
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--surface-0);
+    border: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.avatar i {
+    font-size: 18px;
+}
+
+.avatar-link:hover .avatar,
+.avatar-link.active-link .avatar {
+    border-color: var(--text-accent);
+    color: var(--text-accent);
+}

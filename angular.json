@@ -25,6 +25,7 @@
               }
             ],
             "styles": [
+              "node_modules/@tabler/icons-webfont/dist/tabler-icons.css",
               "src/styles.css"
             ]
           },
@@ -54,6 +55,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 4300
+          },
           "configurations": {
             "production": {
               "buildTarget": "web-chat:build:production"

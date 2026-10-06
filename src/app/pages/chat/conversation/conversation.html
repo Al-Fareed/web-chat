@@ -1,0 +1,31 @@
+<div class="user-chats-container">
+    <div class="chat-navbar">
+        <div class="chat-navbar-user">
+            <div class="chat-navbar-avatar">
+                <img [src]="userDetails?.avatar" alt="">
+            </div>
+            <p class="chat-navbar-name">{{userDetails?.recepientName}}</p>
+        </div>
+        <div class="chat-navbar-menu">
+            <i class="ti ti-menu-2" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="conversation-container">
+        @for (message of messages; track message.messageId) {
+        @if(message.sender === 'me'){
+        <div class="msg-wrapper-right">
+            You : {{message.message}}
+        </div>
+        }@else {
+        <div class="msg-wrapper-left">
+            {{ message.sender }} : {{message.message}}
+        </div>
+        }
+        }
+        @empty{
+        <p>Please select a chat</p>
+        }
+    </div>
+    <div class="chat-options">
+    </div>
+</div>

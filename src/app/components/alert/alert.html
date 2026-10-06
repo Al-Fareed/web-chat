@@ -1,0 +1,10 @@
+<div *ngIf="isVisible" [class]="'alert alert-' + type">
+  <div class="alert-content">
+    <i [class]="type === 'warning' ? 'ti ti-alert-circle' : 'ti ti-check-circle'" 
+       class="alert-icon" 
+       aria-hidden="true"></i>
+    <div class="alert-message">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

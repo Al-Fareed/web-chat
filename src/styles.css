@@ -1,1 +1,218 @@
-/* You can add global styles to this file, and also import other style files */
+/* CSS Custom Properties - Design System Tokens */
+:root {
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --font-voice: Georgia, 'Times New Roman', serif;
+
+  /* Font Sizes */
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-caption: 13px;
+  --font-size-body: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 22px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 28px;
+  --font-size-5xl: 32px;
+  --font-size-6xl: 36px;
+  --font-size-heading: 20px;
+  --font-size-title: 24px;
+
+  /* Text Colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --text-disabled: rgba(0, 0, 0, 0.38);
+  --text-accent: #185FA5;
+  --text-danger: #A32D2D;
+  --text-success: #3B6D11;
+  --text-warning: #854F0B;
+
+  /* Surface Colors */
+  --surface-0: #ffffff;
+  --surface-1: #f5f5f5;
+  --surface-2: #ffffff;
+
+  /* Background Colors (semantic) */
+  --bg-accent: #E6F1FB;
+  --bg-danger: #FCEBEB;
+  --bg-success: #EAF3DE;
+  --bg-warning: #FAEEDA;
+
+  /* Border Colors */
+  --border: rgba(0, 0, 0, 0.12);
+  --border-strong: rgba(0, 0, 0, 0.2);
+  --border-stronger: rgba(0, 0, 0, 0.4);
+  --border-accent: #185FA5;
+
+  /* Layout */
+  --radius: 8px;
+  --pad-sm: 0.5rem;
+  --pad-md: 1rem;
+  --pad-lg: 1.5rem;
+  --pad-xl: 2rem;
+  --gap-xs: 0.25rem;
+  --gap-sm: 0.5rem;
+  --gap-md: 1rem;
+  --gap-lg: 1.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark mode (optional - add later if needed) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-muted: #808080;
+    --surface-0: #1a1a1a;
+    --surface-1: #2a2a2a;
+    --surface-2: #333333;
+    --bg-accent: #0C447C;
+    --bg-danger: #4A1B0C;
+    --bg-success: #173404;
+    --bg-warning: #412402;
+    --border: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--surface-0);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* Typography Defaults */
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 var(--pad-md) 0;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 var(--pad-md) 0;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 var(--pad-sm) 0;
+}
+
+p {
+  margin: 0 0 var(--pad-md) 0;
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Form Elements */
+input,
+textarea,
+select {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface-2);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: var(--border-strong);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--text-accent);
+  box-shadow: 0 0 0 2px var(--bg-accent);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  padding: 10px 16px;
+  border: 0.5px solid var(--border-strong);
+  border-radius: var(--radius);
+  background-color: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: var(--surface-1);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Primary Button Variant */
+button.primary {
+  background-color: var(--text-accent);
+  color: #ffffff;
+  border-color: var(--text-accent);
+}
+
+button.primary:hover {
+  background-color: #0F6E56;
+  border-color: #0F6E56;
+}
+
+/* Checkboxes */
+input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--text-accent);
+  cursor: pointer;
+}
+
+.warning{
+  color: var(--text-danger);
+  font-weight: bolder;
+}

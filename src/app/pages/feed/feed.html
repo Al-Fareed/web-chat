@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="feed-page">
+    <app-cards>
+        @for (feed of feeds; track feed.id){
+            <div class="post-container" > 
+                <div class="feed-header">
+                    <div style="display: flex;align-items: center;" >
+                        <div class="avatar" > <img src={{feed.imageUrl}} alt="" srcset=""> </div>
+                        <div style="margin-left: 3px;" > {{feed.userName}} </div>
+                    </div>
+                    <div> {{feed.createdAt | ordinalDate}} </div>
+                </div>
+                @if(feed.imageUrl !== null ){
+                    <img src={{feed.imageUrl}} alt="">
+                }
+                <div class="footer-section" >
+                    <div class="blog" > {{feed.blog}} </div>
+                    <div class="likes" >
+                        <span class="heart-icon" [class.is-liked]="feed.likedByCurrentUser" aria-hidden="true">&#9829;</span>
+                        {{feed.likesCount}}
+                    </div>
+                </div>
+            </div>
+        }
+    </app-cards>
+</div>

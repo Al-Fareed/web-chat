@@ -1,0 +1,31 @@
+<app-alert *ngIf="signUpForm.get('usermail')?.invalid && signUpForm.get('usermail')?.touched" >Invalid email</app-alert>
+<app-alert *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched" >Invalid password</app-alert>
+<app-alert *ngIf="signUpForm.get('password')?.value!==signUpForm.get('confirmPassword')?.value && signUpForm.get('confirmPassword')?.touched" >Password doesn't match</app-alert>
+
+<div class="login-container">
+    <app-cards>
+        <div class="login-header">
+            <h2>Hey there!</h2>
+            <h3 class="subtitle"> Sign up to start a conversation</h3>
+        </div>
+        <form class="login-form" [formGroup]="signUpForm" (ngSubmit)="handlesignUpFormSubmit()">
+            <div id="input-form">
+                <label for="email">Email</label>
+                <input type="text" formControlName="usermail" name="email">
+            </div>
+            <div id="input-form">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" name="password">
+            </div>
+            <div class="input-form">
+                <div id="input-form">
+                <label for="password">Confirm password</label>
+                <input type="password" formControlName="confirmPassword" name="confirmPassword">
+            </div>
+            </div>
+            <input class="submit-btn" [disabled]="signUpForm.invalid" type="submit" value="Sign In">
+
+            <p class="signup-prompt">Already have an account? <a routerLink="/login" class="signup-link-text">Login</a></p>
+        </form>
+    </app-cards>
+</div>

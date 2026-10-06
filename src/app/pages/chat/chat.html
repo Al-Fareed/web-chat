@@ -1,0 +1,30 @@
+<div class="chat-page-container">
+    <app-navbar></app-navbar>
+    <div class="contacts-section">
+        @for ( chat of chatsList; track chat.chatId ){
+        @let latestMessage = getLatestMessage(chat.lastMessages);
+        <div class="user-chat" (click)="getChatConversation(chat.chatId, chat.recepientName, chat.avatar)" >
+            <div class="avatar"> <img src={{chat.avatar}} alt="" srcset=""> </div>
+            <div class="chat-details">
+                <div class="chat-details-row">
+                    <span class="chat-list-name">{{chat.recepientName}}</span>
+                    <span class="chat-date">{{latestMessage.dateTime | ordinalDate}}</span>
+                </div>
+                <div class="chat-details-row">
+                    <span class="wrap-message">
+                        @if (latestMessage.sender === 'me') { You: }
+                        {{latestMessage.message}}
+                    </span>
+                    @if (chat.totalUnreadMessages > 0){
+                        <span class="message-count">{{ chat.totalUnreadMessages > 99 ? "99+" : chat.totalUnreadMessages}}</span>
+                    }
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    <div class="chat-section">
+        <app-conversation [messages]="selectedConversation" [userDetails]="userDetails">
+        </app-conversation>
+    </div>
+</div>
